@@ -1,0 +1,31 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+    <section id="bigSignUpStack">
+        <section id="loginStack">
+            <h1>
+                Sign Up
+            </h1>
+            <p style="color: {{ messageColor }};">{{ message }}</p>
+            <p style="color: {{ messageColor }};">{{ form.error }}</p>
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                {{ form.first_name }}<br>
+                {{ form.last_name }}<br>
+                {{ form.username }}<br>
+                {{ form.password1 }}<br>
+                {{ form.password2 }}<br>
+                <input type="submit" value="Sign Up">
+                <br>
+                <a href="{% url 'login' %}">Already have an account? Login!</a>
+		<h3>While signing up:</h3>
+		<p><b>-></b> Make sure that your password</br> isn't too similar to your username.</p>
+		<p><b>-></b> Make sure that you password</br> has one capital letter, one </br> special character and one number.</p>
+		<p><b>-></b> Make sure that your password<br> matches with the confirm password <br>field.</p>
+		<p><b>-></b> If you still get an error message<br> then try signing up with a different<br> username. Maybe someone with</br> that username already exists.</p>
+		<p><b>-></b> To make a suggestion, you<br> can write a mail to <br><a>aryandinakaran@protonmail.com</a></p>
+	    </form>
+        </section>
+    </section>
+
+{% endblock %}

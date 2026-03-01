@@ -1,0 +1,32 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+
+    <section id="bigLoginStack">
+        <section id="loginStack">
+            <h1>
+                Login
+            </h1>
+            {% if message %}
+                <p style="color:{{ messageColor }};">
+                    {{ message }}
+                </p>
+            {% endif %}
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Enter Username" />
+                <br>
+                <input type="password" name="password" placeholder="Enter Password" />
+                <br>
+                <input type="submit" value="Login" />
+
+                <br>
+                <br>
+                <a href="{% url 'register' %}">
+                    Don't have an account? Sign Up!
+                </a>
+            </form>
+        </section>
+    </section>
+
+{% endblock %}

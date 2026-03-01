@@ -1,0 +1,28 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+    <a href="{% url 'index' %}">Back</a>
+
+    <h1>
+        {{ task.title }}
+    </h1>
+
+    <p>Status : {{ task.status }}</p>
+    <p>Rating : {{ task.rating }}</p>
+    <p>Time : {{ task.theDate }}</p>
+    <p>Note Type : {{ task.noteType }}</p>
+    <p>Visibility : {{ task.memster }}</p>
+    <p>Date Written : {{ task.theDate }}</p>
+
+    <textarea readonly>{{ task.contents }}</textarea>
+
+    <br>
+    <br>
+
+    {% if task.user == request.user.username %}
+        <a href="{% url 'editTask' task.id %}" id="edit">Edit Task</a>
+
+        <a href="{% url 'deleteTask' task.id %}" id="delete">Delete</a>
+    {% endif %}
+
+{% endblock %}

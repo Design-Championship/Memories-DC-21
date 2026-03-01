@@ -1,0 +1,41 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+    <button onclick="window.history.go(-1)">
+        Back
+    </button>
+
+    <section id="bigProfileStack1">
+        <section id="profileStack">
+
+            <h2>
+                {{ user.first_name }}'s Profile
+            </h2>
+
+            <hr color="red" size=5>
+
+            <p>
+                First Name : {{ user.first_name }}
+            </p>
+            <p>
+                Last Name : {{ user.last_name }}
+            </p>
+            <p>
+                Username : {{ user.username }}
+            </p>
+            <p>
+                Date Joined : {{ user.date_joined }}
+            </p>
+            <p>
+                Last Login : {{ user.last_login }}
+            </p>
+        
+            <hr color="red" size=5>
+            <br>
+
+            <a href="{% url 'usermemster' user.id %}">Look at {{ user.first_name }}'s Memsters</a>
+
+        </section>
+    </section>
+
+{% endblock %}

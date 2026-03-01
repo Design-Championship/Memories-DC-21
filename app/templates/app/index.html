@@ -1,0 +1,337 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+	<main class="sidenav">
+		<center>
+			<a href="{% url 'index' %}"><img src="/static/app/images/logo.png" width=170 id="bigLogo" /></a>
+		</center>
+		<button data-page="home" id="page1"><i class="fas fa-home"></i> Home</button>
+		<button data-page="newNote" id="page2"><i class="fas fa-plus-circle"></i> New Note</button>
+		<button data-page="memster" id="page3"><i class="fas fa-globe"></i> Memster</button>
+		<button data-page="friends" id="page4"><i class="fas fa-user-friends"></i> Friends</button>
+		<button data-page="anonymity" id="page5"><i class="fas fa-hat-cowboy"></i> Anonymity</button>
+		<button data-page="profile" id="page6"><i class="fas fa-user"></i> Profile</button>
+		<button data-page="about" id="page7"><i class="fas fa-info-circle"></i> About</button>
+		<button data-page="contact" id="page8"><i class="fas fa-phone"></i> Contact</button>
+		<button data-page="donate" id="page9"><i class="fas fa-donate"></i> Donate</button>
+	</main>
+
+	<main class="fullStack">
+		<div id="home">
+			<h1 id="BigTitle">
+				Hello, {{ request.user.first_name }} {{ request.user.last_name }}!
+			</h1>
+            <button class="topStack" data-page="home" id="page1"><i class="fas fa-home"></i> Home</button>
+            <button class="topStack" data-page="newNote" id="page2"><i class="fas fa-plus-circle"></i> New Note</button>
+            <button class="topStack" data-page="memster" id="page3"><i class="fas fa-globe"></i> Memster</button>
+            <button class="topStack" data-page="friends" id="page4"><i class="fas fa-user-friends"></i> Friends</button>
+			<h1>
+				Home
+			</h1>
+			<section id="mainScroll">
+				<section>
+					<h2>
+						Professional <i class="fas fa-user-tie"></i>
+					</h2>
+					
+						{% for task in taskProf reversed %}
+							
+								<a href="{% url 'noteView' task.id %}" id="dacard">
+
+									<section id="taskCard">
+
+										<h3>{{ task.title }}</h3>
+										<p>{{ task.theDate }} IST</p>
+										
+									</section>
+									
+								</a>
+								{% empty %}
+								<p id="empty">Nothing yet</p>
+							
+						{% endfor %}
+					
+				</section>
+				<section>
+					<h2>
+						Personal <i class="fas fa-smile-wink"></i>
+					</h2>
+						{% for task in taskper reversed %}
+								<a href="{% url 'noteView' task.id %}" id="dacard">
+
+									<section id="taskCard">
+
+										<h3>{{ task.title }}</h3>
+										<p>{{ task.theDate }} IST</p>
+										
+									</section>
+									
+								</a>
+							{% empty %}
+								<p id="empty">Nothing yet</p>
+						{% endfor %}
+					</ul>
+				</section>
+				
+				<section>
+					<h2>
+						All Activites <i class="fas fa-history"></i>
+					</h2>
+						{% for task in tasksAll reversed %}
+								<a href="{% url 'noteView' task.id %}" id="dacard">
+
+									<section id="taskCard">
+
+										<h3>{{ task.title }}</h3>
+										<p>{{ task.theDate }} IST</p>
+										
+									</section>
+									
+								</a>
+							{% empty %}
+								<p id="empty">Nothing yet</p>
+						{% endfor %}
+				</section>
+			</section>
+		</div>
+
+		<div id="newNote">
+			<h1>
+				New Note
+			</h1>
+            <button class="topStack" data-page="home" id="page1"><i class="fas fa-home"></i> Home</button>
+            <button class="topStack" data-page="newNote" id="page2"><i class="fas fa-plus-circle"></i> New Note</button>
+            <button class="topStack" data-page="memster" id="page3"><i class="fas fa-globe"></i> Memster</button>
+            <button class="topStack" data-page="friends" id="page4"><i class="fas fa-user-friends"></i> Friends</button>
+
+			<form action="{% url 'index' %}" method="POST">
+				{% csrf_token %}
+					<h3>
+						<input type="text" name="title" placeholder="Enter Title" required />
+						<input type="text" name="status" placeholder="Express your feelings" required />
+					</h3>
+				<textarea name="contents" placeholder="Enter what's on your mind {{ request.user.first_name }}?" required></textarea>
+				<h3>
+					<b>Rate your day</b> 
+					<select name="rating">
+						<option value=1>1 - Not up to the mark</option>
+						<option value=2>2 - Can do better</option>
+						<option value=3>3 - Way to go</option>
+						<option value=4>4 - A good day</option>
+						<option value=5>5 - An awesome day</option>
+					</select>
+				</h3>
+				<h3>
+					Note Type
+					<select name="noteType">
+						<option value="personal">Personal Note</option>
+						<option value="professional">Professional Note</option>
+					</select>
+					<select name="memster">
+						<option value="private">Private</option>
+						<option value="public">Public</option>
+					</select>
+					<br>
+					<input type="submit" value="Create Note" />
+				</h3>
+
+				{% if message %}
+					{{ message }}
+				{% endif %}
+			</form>
+
+		</div>
+
+		<div id="memster">
+            <h1>
+                Memster
+            </h1>
+			<button class="topStack" data-page="home" id="page1"><i class="fas fa-home"></i> Home</button>
+            <button class="topStack" data-page="newNote" id="page2"><i class="fas fa-plus-circle"></i> New Note</button>                          
+            <button class="topStack" data-page="memster" id="page3"><i class="fas fa-globe"></i> Memster</button>
+            <button class="topStack" data-page="friends" id="page4"><i class="fas fa-user-friends"></i> Friends</button>
+            
+			<section id="theCards">
+				{% for task in publicTasks reversed %}
+					<a href="{% url 'noteView' task.id %}" id="dacard">
+
+						<section id="taskCard">
+
+							<h3>{{ task.title }}</h3>
+							<p>Written By <b>{{ task.user }}</b></p>
+							<p>Written On <b>{{ task.theDate }} IST</b></p>
+							
+						</section>
+						
+					</a>
+					{% empty %}
+						<p id="empty">Nothing yet. But you can be the first one to write public memsters</p>
+				{% endfor %}
+			</section>
+		</div>
+
+		<div id="friends">
+            <h1>Friends</h1>
+		    <button class="topStack" data-page="home" id="page1"><i class="fas fa-home"></i> Home</button>
+             <button class="topStack" data-page="newNote" id="page2"><i class="fas fa-plus-circle"></i> New Note</button>                          
+             <button class="topStack" data-page="memster" id="page3"><i class="fas fa-globe"></i> Memster</button>
+             <button class="topStack" data-page="friends" id="page4"><i class="fas fa-user-friends"></i> Friends</button>
+
+             <br>
+
+			{% for user in users %}
+				<a id="friendCard" href="{% url 'userprofile' user.id %}">
+					<section id="UserCard">
+						<section id="shortForm">
+							{{ user.first_name.0 }}{{ user.last_name.0 }}
+						</section>
+					
+						{{ user.first_name }}<br>
+						{{ user.last_name }}
+					</section>
+				</a>
+			{% endfor %}
+
+		</div>
+
+		<div id="anonymity">
+			<h1>Anonymity</h1>
+
+			<p>
+				If you are a fan of anonymity, you can use the anonymity feature
+				of our website. Use this link in your url bar to access the dark
+				web version of our site. Note: this link can only work on the tor browser or
+				tor private window on brave browser.
+				<br>
+				Here is the link : <a>q56hsj7qs7ny5x34cwmktxyza55xf5rugndarzxkoinww2vq62qdltid.onion</a>
+			</p>
+
+		</div>
+
+		<div id="profile">
+
+			<h1>
+				Profile
+			</h1>
+			<section id="bigProfileStack">
+					<section id="profileStack">
+
+						<h2>
+							Your Profile
+						</h2>
+
+						<hr color="red" size=5>
+
+						<p>
+							First Name : {{ request.user.first_name }}
+						</p>
+						<p>
+							Last Name : {{ request.user.last_name }}
+						</p>
+						<p>
+							Username : {{ request.user.username }}
+						</p>
+						<p>
+							Date Joined : {{ request.user.date_joined }}
+						</p>
+						<p>
+							Last Login : {{ request.user.last_login }}
+						</p>
+					
+						<hr color="red" size=5>
+						<br>
+						<center>
+							<a href="{% url 'logout' %}" id="logout">Logout</a>
+						</center>
+
+					</section>
+				</section>
+			</div>
+
+		<div id="about">
+			<h1>About the Creators</h1>
+
+			<h2>
+				Aryan Dinakaran
+			</h2>
+			<p>I'm Aryan Dinakaran, a national swimmer, Developer
+				and a student of Sri Sri Ravishankar Vidya Mandir Mulund. I am currently 15 years old. I am in 10th Grade. I love programming.
+				I am passionate about learning Computer Science.
+				I with my team am the holder of best app in State in the field of app design 2019.
+				My favourite operating system is ubuntu server;Here is my <a href="https://aryandinakaran1.github.io/">website.</a>
+			</p>
+			
+			<h2>
+				Heth Gala
+			</h2>
+			<p>
+				I'm Heth Gala, developer and student of Sri Sri Ravishankar Vidya Mandir Mulund.I am currently 15 years old.I am in 10th grade. I love programming, science and math.
+			</p>
+
+			<h2>
+				Samik Kodoth
+			</h2>
+			<p>
+				I am Samik Kodoth . Programming has always been my hobby from coding Standalone Java programs to now web based sites . I with my team am the holder of best app in State in the field of app design . I also specialise in sports and have been a part of the cricket and football team. I would want to integrate myself in multiple languages like JS and C++ and hope to be a coder in the future.
+			</p>
+
+			<h2>
+				Veer Vora
+			</h2>
+			<p>
+				I am Veer Vora a district level football and basketball player and a student of Sri Sri Ravishankar Vidya Mandir Mulund. I am currently 15 years old. I am in 10th Grade. I love playing sports and . I like programming too
+			</p>
+
+		</div>
+
+		<div id="contact">
+			<h1>Contact</h1>
+			<p>
+				If you have any questions you can us contact at
+				<br>
+				Email : <a>appdesign33@gmail.com</a>
+			</p>
+		</div>
+
+		<div id="donate">
+			<h1>
+				Donate
+			</h1>
+			<section id="cryptoStack">
+				<section class="cryptoCard">
+					<h3>
+						Bitcoin <i class="fab fa-bitcoin"></i>
+					</h3> 
+					<img src="/static/app/images/btcCode.png" width=150 />
+					</br>
+					<b>bc1qhyegc49m9ddhchn66lycp0fxxfd05gy5jakypp</b>
+				</section>
+				<section class="cryptoCard">
+					<h3>
+						Ethereum <i class="fab fa-ethereum"></i>
+					</h3>
+					<img src="/static/app/images/ethCode.png" width=150 />
+					<br>
+					<b>0x7889290C6DCB45A644FC1178A519EE9E3834C1B8</b>
+				</section>
+				<section class="cryptoCard">
+					<h3>
+						Dogecoin
+					</h3>
+					<img src="/static/app/images/dogeCode.png" width=150 />
+					<br>
+					<b>D5LabMfDM8LSKNUJ7AjN2N15AphD4rKqYP</b>
+				</section>
+				<section class="cryptoCard">
+					<h3>
+						Shiba Inu
+					</h3>
+					<img src="/static/app/images/shibCode.png" width=150 />
+					<br>
+					<b>0x7889290C6DCB45A644FC1178A519EE9E3834C1B8</b>
+				</section>
+			</section>
+		</div>
+	</main>
+
+{% endblock %}

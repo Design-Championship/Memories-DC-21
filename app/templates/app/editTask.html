@@ -1,0 +1,41 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+    <h1>
+        Edit Task
+    </h1>
+
+    <a href="{% url 'noteView' task.id %}">Back</a>
+
+    <form action="{% url 'editTask' task.id %}" method="POST">
+        {% csrf_token %}
+
+        <input type="title" value="{{ task.title }}" name="title" placeholder="Edit Title" />
+        <input value="{{ task.status }}" type="text" name="status" placeholder="Edit Status" />
+        <textarea name="contents" placeholder="Edit Contents">{{ task.contents }}</textarea>
+        
+        <p>
+            Rate your day : 
+            <select name="rating">
+                <option value=1>1 - Not up to the mark</option>
+                <option value=2>2 - Can do better</option>
+                <option value=3>3 - Way to go</option>
+                <option value=4>4 - A good day</option>
+                <option value=5>5 - An awesome day</option>
+            </select>
+        </p>
+        
+        <select name="noteTypeEdit">
+            <option value="personal">Personal Account</option>
+            <option value="professional">Professional Account</option>
+        </select>
+      	
+	<select name="memster">
+		<option value="private">Private</option>
+		<option value="public">Public</option>
+	</select>
+
+        <input type="submit" value="Edit" />
+    </form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "app/layout.html" %}
+{% block body %}
+
+    <button onclick="window.history.go(-1)">
+        Back
+    </button>
+
+    <h1>
+        {{ user.first_name }}'s Memsters
+    </h1>
+
+    {% for task in memsters %}
+        <a href="{% url 'noteView' task.id %}" id="dacard">
+
+            <section id="taskCard1">
+
+                <h3>{{ task.title }}</h3>
+                <p>Written By <b>{{ task.user }}</b></p>
+                <p>Written On <b>{{ task.theDate }} IST</b></p>
+                
+            </section>
+            
+        </a>
+    {% empty %}
+        <h1>Look's like {{ user.first_name }} does not have any Memster.</h1>
+    {% endfor %}
+
+{% endblock %}

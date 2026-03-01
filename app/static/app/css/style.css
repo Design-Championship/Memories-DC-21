@@ -1,0 +1,486 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul
+{
+    margin-left: 0px;
+    list-style-type: none;
+}
+li
+{
+    margin-left: 0px;
+}
+button
+{
+    background-color: dodgerblue;
+    color: white;
+    text-align: left;
+    font-size: 30px;
+    border: 0px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+button:hover
+{
+    background-color: blue;
+    color: white;
+    font-size: 30px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.1s;
+}
+select
+{
+    font-size: 20px;
+    transition: 0.5s;
+    border-radius: 20px;
+    border: 0px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+select:hover
+{
+    font-size: 20px;
+    box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 24px 40px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.1s;
+}
+input
+{
+    font-size: 20px;
+    transition: 0.5s;
+    border-radius: 20px;
+    border: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+input:hover
+{
+    font-size: 20px;
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 24px 80px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.1s;
+}
+p
+{
+    font-size: 20px;
+}
+li
+{
+    font-size: 20px;
+}
+a
+{
+    color: blue;
+    text-decoration: none;
+    font-size: 20px;
+}
+a:hover
+{
+    color: blue;
+    text-decoration: underline;
+    font-size: 20px;
+}
+textarea
+{
+    font-size: 20px;
+    width: 90%;
+    height: 200px;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-left: 5px;
+    top: 5px;
+    transition: 1s;
+    resize: none;
+}
+textarea:hover
+{
+    font-size: 20px;
+    width: 90%;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(17, 0, 255, 0.2), 0 6px 20px 0 rgba(17, 0, 255, 0.19);
+    transition: 0.5s;
+}
+#delete
+{
+    background-color: tomato;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+#loginStack
+{
+    margin-top: 100px;
+    float: right;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: max-content;
+    box-shadow: 0 4px 8px 0 rgba(17, 0, 255, 0.2), 0 6px 20px 0 rgba(17, 0, 255, 0.19);
+}
+#loginLeftStack
+{
+    float: left;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: max-content;
+    box-shadow: 0 4px 8px 0 rgba(17, 0, 255, 0.2), 0 6px 20px 0 rgba(17, 0, 255, 0.19);
+}
+#signUpButton
+{
+    position: absolute;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 20px;
+    float: right;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(17, 0, 255, 0.2), 0 6px 20px 0 rgba(17, 0, 255, 0.19);
+    transition: 1.0s;
+}
+#signUpButton:hover
+{
+    background-color: rgb(55, 55, 255);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 16px 64px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+    transition: 0.5s;
+}
+
+#BigTitle
+{
+    background-color: none;
+    top: 0;
+}
+
+#delete:hover
+{
+    background-color: red;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#edit
+{
+    background-color: dodgerblue;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+#edit:hover
+{
+    background-color: blue;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+td
+{
+    font-size: 20px;
+}
+table
+{
+    margin-bottom: 20px;
+    border: 5px solid red;
+    border-radius: 20px;
+    padding: 10px;
+}
+td
+{
+    padding:20px;
+}
+#logout
+{
+    background-color: orangered;
+    color: white;
+    padding:5px;
+    border-radius: 5px;
+    transition: 1s;
+    text-decoration: none;
+}
+#logout:hover
+{
+    background-color: red;
+    color: white;
+    padding:10px;
+    border-radius: 5px;
+    transition: 0.1s;
+}
+#cryptoStack
+{
+    display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+.cryptoCard
+{
+    border: 5px;
+    box-shadow: 0 4px 8px 0 rgba(17, 0, 255, 0.2), 0 6px 20px 0 rgba(17, 0, 255, 0.19);
+    background-color: white;
+    padding-left: 10px;
+    width: max-content;
+    padding:10px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 2s;
+}
+.cryptoCard:hover
+{
+    border: 5px;
+    box-shadow: 0 4px 8px 0 blue, 0 6px 20px 0 blue;
+    background-color: white;
+    padding-left: 10px;
+    width: max-content;
+    padding:10px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.1s;
+}
+#mainScroll
+{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+#mainScroll > section
+{
+    margin-left: 30px;
+    width: 25%;
+}
+#taskCard
+{
+    background-color: blue;
+    color: white;
+    height: auto;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 16px 64px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    margin: 10px;
+    transition: 1s;
+}
+#taskCard1
+{
+    background-color: red;
+    color: white;
+    height: auto;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 16px 64px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80%;
+    margin: 10px;
+    transition: 1s;
+}
+#taskCard1:hover
+{
+    background-color: white;
+    color: red;
+    height: auto;
+    box-shadow: 0 16px 32px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80%;
+    margin: 10px;
+    transition: 0.1s;
+}
+#taskCard:hover
+{
+    background-color: yellow;
+    color: blue;
+    height: auto;
+    box-shadow: 0 16px 32px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    margin: 10px;
+    transition: 0.1s;
+}
+#theCards
+{
+    width: 80%;
+}
+#dacard
+{
+    text-decoration: none;
+}
+#taskCard > a
+{
+    color: white;
+    text-decoration: none;
+}
+.fullStack
+{
+    margin-left: 200px;
+    width: 85%;
+}*
+/*
+.arrHor *
+{
+    box-sizing: border-box;
+}*/
+.topStack
+{
+    background-color: white;
+    color: red;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    box-shadow: 0 16px 64px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+}
+.topStack:hover
+{
+    background-color: red;
+    color: white;
+    box-shadow: 0 16px 64px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+}
+#bigLoginStack
+{
+  
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#bigSignUpStack
+{
+    margin-top: 250px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#bigLogo
+{
+    margin-bottom: 20px;
+}
+#empty
+{
+    font-size: 30px;
+}
+#newNoteStack
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+#UserCard
+{
+    padding: 20px;
+    background-color: rgb(2, 255, 158);
+    border-radius: 20px;
+    transition: 1s;
+    width: max-content;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+#UserCard:hover
+{
+    box-shadow: 0 8px 16px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+    background-color: lime;
+    transition: 0.1s;
+}
+#shortForm
+{
+    background-color: yellow;
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 white, 0 3px 10px 0 white;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+#friendCard
+{
+    color: black;
+    text-decoration: none;
+}
+#bigProfileStack
+{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 16px 32px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+    border-radius: 20px;
+    transform: translate(-25%,-50%);
+}
+#bigProfileStack1
+{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 16px 32px 0 rgba(17, 0, 255, 0.2), 0 12px 40px 0 rgba(17, 0, 255, 0.19);
+    border-radius: 20px;
+    transform: translate(-50%,-50%);
+}
+.sidenav
+{
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+.sidenav button
+{
+    /*margin-bottom: 20px;*/
+    cursor: pointer;
+    height: 50px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    background-color: #111;
+    width: 100%;
+    border-radius: 0px;
+  }
+.sidenav button:hover 
+{
+    color: black;
+    background-color: white;
+    border-radius: 0px;
+}
